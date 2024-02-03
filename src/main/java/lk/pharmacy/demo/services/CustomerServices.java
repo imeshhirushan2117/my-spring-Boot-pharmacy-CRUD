@@ -34,4 +34,12 @@ public class CustomerServices {
     public List<Customer> getCustomer() {
         return customerRepo.findAll();
     }
+
+    public String deletedCustomer(Long customerId) {
+        if (customerRepo.existsById(customerId)){
+            customerRepo.deleteById(customerId);
+            return "Customer Deleted!";
+        }
+        return "No Customer Found!";
+    }
 }
