@@ -47,5 +47,11 @@ public class CustomerController {
         return new ResponseEntity<>(deleted,HttpStatus.CREATED);
     }
 
+    @PutMapping("/{customerId}")
+    public ResponseEntity<Customer> updateCustomer(@PathVariable Long customerId ,@RequestBody CustomerDto dto){
+        Customer customer = services.customerUpdate(customerId, dto);
+        return new ResponseEntity<>(customer,HttpStatus.CREATED);
+    }
+
 
 }

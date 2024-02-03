@@ -42,4 +42,11 @@ public class CustomerServices {
         }
         return "No Customer Found!";
     }
+
+
+    public Customer customerUpdate(Long customerId, CustomerDto dto) {
+        if(customerRepo.existsById(customerId)){
+            return customerRepo.save(new Customer(customerId, dto.getName(),dto.getAddress(),dto.getSalary()));
+        }return null;
+    }
 }
