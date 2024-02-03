@@ -3,6 +3,8 @@ package lk.pharmacy.demo.repo;
 import lk.pharmacy.demo.entity.Customer;
 import org.springframework.data.jpa.repository.JpaRepository;
 
+import java.util.Optional;
+
 /**
  * Created By Imesh Hirushan
  * Project Name : demo
@@ -12,5 +14,7 @@ import org.springframework.data.jpa.repository.JpaRepository;
  */
 
 public interface CustomerRepo extends JpaRepository <Customer, Long> {
+
+
 
 }

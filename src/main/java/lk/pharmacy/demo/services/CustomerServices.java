@@ -8,6 +8,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import java.util.List;
+import java.util.Optional;
 
 /**
  * Created By Imesh Hirushan
@@ -48,5 +49,10 @@ public class CustomerServices {
         if(customerRepo.existsById(customerId)){
             return customerRepo.save(new Customer(customerId, dto.getName(),dto.getAddress(),dto.getSalary()));
         }return null;
+    }
+
+    public Customer searchCustomerById(Long customerId) {
+        Optional<Customer> byId = customerRepo.findById(customerId);
+        return byId.orElse(null);
     }
 }
