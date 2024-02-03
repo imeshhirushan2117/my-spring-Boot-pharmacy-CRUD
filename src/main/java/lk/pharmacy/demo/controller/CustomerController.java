@@ -59,4 +59,12 @@ public class CustomerController {
         return new ResponseEntity<>(customer,HttpStatus.OK);
     }
 
+
+    @GetMapping("/searchCustomerByName/{customerName}")
+    public ResponseEntity<Customer> searchByName(@PathVariable String customerName) {
+        Customer customer = services.searchByName(customerName);
+        return new ResponseEntity<>(customer,HttpStatus.OK);
+    }
+
+
 }

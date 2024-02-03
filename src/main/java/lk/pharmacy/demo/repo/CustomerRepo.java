@@ -13,8 +13,6 @@ import java.util.Optional;
  * Time : 9:31 PM
  */
 
-public interface CustomerRepo extends JpaRepository <Customer, Long> {
-
-
-
+public interface CustomerRepo extends JpaRepository<Customer, Long> {
+    Customer findCustomerByName(String name);
 }

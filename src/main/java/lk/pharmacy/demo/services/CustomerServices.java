@@ -55,4 +55,10 @@ public class CustomerServices {
         Optional<Customer> byId = customerRepo.findById(customerId);
         return byId.orElse(null);
     }
+
+    public Customer searchByName(String customerName) {
+        return customerRepo.findCustomerByName(customerName);
+    }
+
+
 }
