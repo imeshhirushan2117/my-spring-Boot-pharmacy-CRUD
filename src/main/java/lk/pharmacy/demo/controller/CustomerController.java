@@ -7,10 +7,9 @@ import lk.pharmacy.demo.services.CustomerServices;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
-import org.springframework.web.bind.annotation.PostMapping;
-import org.springframework.web.bind.annotation.RequestBody;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RestController;
+import org.springframework.web.bind.annotation.*;
+
+import java.util.List;
 
 /**
  * Created By Imesh Hirushan
@@ -35,6 +34,11 @@ public class CustomerController {
     public ResponseEntity<Customer> saveCustomer(@RequestBody CustomerDto dto){
         Customer saved = services.save(dto);
         return new ResponseEntity<>(saved, HttpStatus.CREATED);
+    }
+    @GetMapping
+    public ResponseEntity<List<Customer>> getCustomer(){
+        List<Customer> customer = services.getCustomer();
+        return new ResponseEntity<>(customer,HttpStatus.OK);
     }
 
 }

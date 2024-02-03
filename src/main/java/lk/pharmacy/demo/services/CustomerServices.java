@@ -7,6 +7,8 @@ import lk.pharmacy.demo.repo.CustomerRepo;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
+import java.util.List;
+
 /**
  * Created By Imesh Hirushan
  * Project Name : demo
@@ -27,5 +29,9 @@ public class CustomerServices {
 
     public Customer save(CustomerDto dto) {
        return customerRepo.save(new Customer(dto.getName(),dto.getAddress(),dto.getSalary()));
+    }
+
+    public List<Customer> getCustomer() {
+        return customerRepo.findAll();
     }
 }
